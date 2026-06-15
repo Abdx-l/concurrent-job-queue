@@ -9,5 +9,5 @@ python job_queue.py list
 python -m unittest discover -s tests -v
 ```
 
-The built-in `sum` and `sleep` handlers demonstrate the worker contract. Add handlers to `HANDLERS` for application work. Use `--db` to point multiple worker processes at the same SQLite database. Expired leases become claimable again, so handlers should be safe to run more than once. The queue uses SQLite's single-writer transactions and suits local or modest workloads.
+The built-in `sum` and `sleep` handlers demonstrate the worker contract. Extend `handle()` for application work. Use `--db` to point multiple worker processes at the same SQLite database. Expired leases become claimable again, so handlers should be safe to run more than once. The queue uses SQLite's single-writer transactions and suits local or modest workloads.
 
